@@ -1,7 +1,7 @@
 package main
 
 func ExampleMapping() {
-	PrintIExample(CreateSampleInterfaceMap())
+	PrintMapExample(CreateSampleInterfaceMap())
 
 	// Output:
 	// any1: {stuff}
@@ -9,7 +9,7 @@ func ExampleMapping() {
 	// any3: {more different stuff}
 }
 func ExampleMapping2() {
-	PrintIExample(CreateSampleFunctionMap())
+	PrintFExample(CreateSampleFunctionMap())
 
 	// Output:
 	// any: stuff

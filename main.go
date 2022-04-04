@@ -13,59 +13,42 @@
 // GitHub: https://github.com/skeptycal
 //
 // Twitter: https://twitter.com/skeptycal
-//
-// Stack Overflow Post: https://stackoverflow.com/q/71677581
-//
-// Go Playground version: https://go.dev/play/p/jR5MpX-Fopc
-//
-// This repo: https://github.com/skeptycal/71677581
-//
-// Copyright (c) 2022 Michael Treanor
-//
-// MIT License
-//
-// GitHub: https://github.com/skeptycal
-//
-// Twitter: https://twitter.com/skeptycal
 package main
 
 import (
 	"fmt"
 	"testing"
+	"unicode"
 )
 
-
-/////////////////// Way More Examples than We Need //////////////////
-
-/////////////////// The Original Type //////////////////
-
+///////////////////////////// So Many Comments! /////////////////////////////
 // Since this was a question specifically about implementation of
 // Generics to maps in Go, here are some examples. I realize this
 // much more than required, but I think examples help to clear
 // up misconceptions.
+/////////////////////////////////////////////////////////////////////////////
 
 // types based on the original interface-based type
 type (
-	// original interface{} map from the
-	// Stack Overflow question. This is the
-	// 'value' for the map example.
+	// The example in the question used a map with strings for keys and the
+	// IExample interface as the value type and the plan for the map was:
 	//
-	// used with:
 	//  mapping := map[string]IExample[any]{
 	//       // .......
 	//  }
-	IExample[T any] interface{ ExampleFunc(ex T) T }
+	IExample[T any] interface {
+		ExampleFunc(ex T) T
+	}
 
-	// A type for the entire map, instead of just
-	// the 'value' used in the original example.
-	// But ... is this the way to go? Is this clear
-	// and does it communicate the functionality?
+	// IExampleMap is a type I created for the entire map, instead of just
+	// the 'value' used in the original example. But ... is this the way
+	// to go? Is this clear and does it communicate the functionality?
 	IExampleMap[T any] map[string]interface{ ExampleFunc(ex T) T }
 
 	// examples of IExampleMap instantiated for various types
 	IExampleMapAny   = IExampleMap[any]
 	IExampleMapInt   = IExampleMap[int]
-	IExampleMapTests = IExampleMap[struct { // type for table based testing
+	IExampleMapTests = IExampleMap[struct { // type for table-based testing
 		name    string
 		fn      interface{}
 		in      []interface{}
@@ -147,6 +130,31 @@ type (
 	TestMap[K comparable, V Ordered] AnyMap[K, Test[V]]
 )
 
+type {
+	func(n int)int
+}
+
+type tester[IN Ordered, W any] struct {
+	name    string
+	fn      interface{}
+	in      []IN
+	want    []W
+	wantErr bool
+}
+
+func DynamicFunction() {
+	var t IExampleMapTests
+
+	t = Test{
+		name:    "dynamic",
+		fn:      unicode.IsSpace,
+		in:      []any{" "},
+		want:    []any{true},
+		wantErr: false,
+	}
+
+}
+
 // CreateSampleInterfaceMap returns an example
 // interface map with several sample values.
 func CreateSampleInterfaceMap() IExampleMapAny {
@@ -197,7 +205,7 @@ func main() {
 
 	FuncExample := CreateSampleFunctionMap()
 
-	FuncExample["late addition"] = MyFuncAny(ex any) any { return "stuff" }
+	// FuncExample["late addition"] = MyFuncAny() { return "stuff" }
 
 	// ************************************** error
 	// uncomment the next line to see the error in action!
@@ -223,8 +231,8 @@ func main() {
 	// These are found in the main_test.go file
 	// in the GitHub repo so they can be run
 	// from go test in the standard fashion:
-	PrintIExample(IExample)
-	PrintFuncExample()
+	PrintMapExample(IExample)
+	PrintMapExample(FuncExample)
 
 }
 
@@ -249,13 +257,13 @@ func MyFuncInt(ex int) int { return 42 }
 
 // PrintIExample actually can print any map, but is used
 // here for the example type IExampleMap.
-func PrintIExample[K comparable, V any](m map[K]V) {
+func PrintMapExample[K comparable, V any](m map[K]V) {
 	for k, v := range m {
 		fmt.Printf("%v: %v\n", k, v)
 	}
 }
-func PrintFuncExample() {
-	for k, v := range Mapping2 {
+func PrintFExample(m ExampleFuncMap) {
+	for k, v := range m {
 		// calling v with the zero value of the type for this
 		// example; this data could be stored in a struct,
 		// sent on a channel, stored in a file ...
