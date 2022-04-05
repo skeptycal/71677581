@@ -1,13 +1,1 @@
 
-mode: atomic
-github.com/skeptycal/goutil/generic/generic/soexamples/71677581/main.go:57.27,58.28 1 0
-github.com/skeptycal/goutil/generic/generic/soexamples/71677581/main.go:58.28,60.3 1 0
-github.com/skeptycal/goutil/generic/generic/soexamples/71677581/main.go:67.28,68.29 1 0
-github.com/skeptycal/goutil/generic/generic/soexamples/71677581/main.go:68.29,73.3 1 0
-github.com/skeptycal/goutil/generic/generic/soexamples/71677581/main.go:81.13,111.2 3 0
-github.com/skeptycal/goutil/generic/generic/soexamples/71677581/main.go:128.27,128.44 1 1
-github.com/skeptycal/goutil/generic/generic/soexamples/71677581/main.go:135.43,135.59 1 1
-github.com/skeptycal/goutil/generic/generic/soexamples/71677581/main.go:141.43,141.59 1 0
-github.com/skeptycal/goutil/generic/generic/soexamples/71677581/main.go:145.55,145.75 1 0
-github.com/skeptycal/goutil/generic/generic/soexamples/71677581/main.go:147.28,147.46 1 1
-github.com/skeptycal/goutil/generic/generic/soexamples/71677581/main.go:148.28,148.41 1 0
