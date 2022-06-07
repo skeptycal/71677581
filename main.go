@@ -18,7 +18,6 @@ package main
 import (
 	"fmt"
 	"testing"
-	"unicode"
 )
 
 ///////////////////////////// So Many Comments! /////////////////////////////
@@ -130,9 +129,9 @@ type (
 	TestMap[K comparable, V Ordered] AnyMap[K, Test[V]]
 )
 
-type {
-	func(n int)int
-}
+type (
+	intfunc func(n int) int
+)
 
 type tester[IN Ordered, W any] struct {
 	name    string
@@ -140,19 +139,6 @@ type tester[IN Ordered, W any] struct {
 	in      []IN
 	want    []W
 	wantErr bool
-}
-
-func DynamicFunction() {
-	var t IExampleMapTests
-
-	t = Test{
-		name:    "dynamic",
-		fn:      unicode.IsSpace,
-		in:      []any{" "},
-		want:    []any{true},
-		wantErr: false,
-	}
-
 }
 
 // CreateSampleInterfaceMap returns an example
