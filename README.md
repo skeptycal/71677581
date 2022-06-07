@@ -1,10 +1,4 @@
-# gorepotemplate
-
-> Tricky and fun utilities for Go programs.
-
----
-
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/skeptycal/gorepotemplate/Go) ![Codecov](https://img.shields.io/codecov/c/github/skeptycal/gorepotemplate)
+# Stack Overflow Example
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](code-of-conduct.md)
 
@@ -12,74 +6,7 @@
 
 ---
 
-## Getting Started
-
-### Prerequisites
-
-- [Go](https://golang.org/)
-- [Git](https://git-scm.com/)
-- [GitHub CLI](https://cli.github.com/)
--
-
-Developed with $( go version; ). Go is _extremely_ backwards compatible and semver stable. Nearly any v1.x should work fine.
-
----
-
-### Installation
-
-To use this repo as a template for your own project:
-
-```sh
-gh repo create -y --public --template "https://github.com/skeptycal/gorepotemplate"
-```
-
-Clone this repo to test and contribute:
-
-```bash
-# add repo to $GOPATH (xxxxxx is your computer login username)
-go get github.com/xxxxxx/gorepotemplate
-
-cd ${GOPATH}/src/github.com/xxxxxx/gorepotemplate
-
-# test results and coverage info
-./go.test.sh
-
-# install as a utility package
-go install
-
-```
-
 Use the [Issues][issues] and [PR][pr] templates on the GitHub repo page to contribute.
-
----
-
-### Basic Usage
-
-> This is a copy of the example script available in the `cmd/example/gorepotemplate` folder:
-
-```go
-package main
-
-import "github.com/skeptycal/gorepotemplate"
-
-func main() {
-    gorepotemplate.Example()
-}
-
-```
-
-To try it out:
-
-```sh
-# change to the sample folder
-cd cmd/example/gorepotemplate
-
-# run the main.go program
-go run ./main.go
-
-# to compile as an executable
-go build
-```
 
 ---
 
